@@ -59,3 +59,19 @@ class Booking(db.Model):
             'booking_date': self.booking_date,
             'number_of_people': self.number_of_people
         }
+
+# Users data model
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    profile_picture_url = db.Column(db.String(200))
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email,
+            'profile_picture_url': self.profile_picture_url
+        }
