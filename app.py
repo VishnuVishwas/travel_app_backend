@@ -11,8 +11,6 @@ db.init_app(app)
 
 # Create tables if they don't exist
 with app.app_context():
-    inspector = inspect(db.engine)
-    if 'places' not in inspector.get_table_names():
         db.create_all()
 
 @app.route('/')
